@@ -58,7 +58,7 @@ const CourseDetail = () => {
   return (
     <div className="space-y-5 mb-5">
       {/* Course Header */}
-      <div
+      {/* <div
         className="text-white"
         style={{
           background: "#020024",
@@ -88,24 +88,63 @@ const CourseDetail = () => {
             <BadgeInfo size={16} />
             <p>Last updated {course?.createdAt?.split("T")[0]}</p>
           </div>
-          {/* <p>Students enrolled: {course?.enrolledStudents?.length}</p> */}
+        </div>
+      </div> */}
+      <div
+        className="text-white relative overflow-hidden z-0"
+        style={{
+          background: "#020024",
+          backgroundImage: `linear-gradient(90deg, 
+      rgb(151, 147, 215) 0%, 
+      rgb(119, 101, 193) 20%, 
+      rgb(80, 48, 149) 40%, 
+      rgb(59, 167, 188) 60%, 
+      rgb(110, 165, 177) 80%)`,
+        }}
+      >
+        {/* Decorative Gradient Circles */}
+        <div className="absolute -top-10 -left-10 w-72 h-72 bg-purple-500 rounded-full opacity-30 animate-pulse"></div>
+        <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-400 rounded-full opacity-25 animate-pulse"></div>
+
+        <div className="max-w-7xl mx-auto py-12 px-6 md:px-12 flex flex-col gap-4 relative z-10">
+          <h1 className="text-3xl md:text-4xl font-extrabold flex items-center gap-3 animate-fadeIn">
+            <FaCertificate className="text-yellow-400 text-3xl md:text-4xl animate-bounce" />
+            {course?.courseTitle || "Course Title"}
+          </h1>
+
+          <p className="text-base md:text-lg leading-relaxed text-gray-200 animate-fadeIn delay-150">
+            {course?.subTitle || "Course Sub-title"}
+          </p>
+
+          <p className="text-sm md:text-base font-semibold text-gray-300 animate-fadeIn delay-300">
+            Created By{" "}
+            <span className="text-blue-400 underline italic">
+              {course?.creator?.name || "Instructor Name"}
+            </span>
+          </p>
+
+          <div className="flex items-center gap-2 text-sm md:text-base text-gray-300 animate-fadeIn delay-500">
+            <BadgeInfo size={16} />
+            <p>Last updated {course?.createdAt?.split("T")[0]}</p>
+          </div>
+
+          {/* Optional: Students Enrolled */}
+          {/* <p className="text-sm md:text-base text-gray-300 animate-fadeIn delay-700">
+      Students enrolled: {course?.enrolledStudents?.length}
+    </p> */}
         </div>
       </div>
+
 
       {/* Main Content */}
       {/* <div className="max-w-7xl mx-auto my-5 px-4 md:px-8 flex flex-col lg:flex-row justify-between gap-10"> */}
       <div className="flex flex-col-reverse lg:flex-row gap-6 max-w-7xl mx-auto my-5 px-4 md:px-8 lg:flex-row justify-between gap-10">
 
         {/* Left Side */}
+        
         <div className="w-full lg:w-1/2 space-y-5">
-          {/* Course Description */}
-          <h1 className="font-bold text-xl md:text-2xl">Description</h1>
-          <p
-            className="text-sm"
-            dangerouslySetInnerHTML={{ __html: course?.description }}
-          />
 
-          <div className="relative rounded-2xl p-6 border border-[#e8e2d0] bg-[#fdf6e3] shadow-lg animate-brighten overflow-hidden transition-all duration-700 ease-in-out">
+        <div className="relative rounded-2xl p-6 border border-[#e8e2d0] bg-[#fdf6e3] shadow-lg animate-brighten overflow-hidden transition-all duration-700 ease-in-out">
             <h1 className=" font-playfair font-semibold text-[#3d3d3d] mb-4 tracking-wide">
               🌟 Course Overview
             </h1>
@@ -115,68 +154,21 @@ const CourseDetail = () => {
               dangerouslySetInnerHTML={{ __html: course.courseOverview }}
             />
           </div>
+          {/* Course Description */}
+          <h1 className="font-bold text-xl md:text-2xl">Description</h1>
+          <p
+            className="text-sm"
+            dangerouslySetInnerHTML={{ __html: course?.description }}
+          />
 
 
 
 
           {/* Curriculum Section */}
-          {/* <Card className='mt-6'>
-            <CardHeader>
-              <CardTitle>Curriculum</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {course?.lectures?.length > 0 ? (
-                course?.lectures?.map((lecture, idx) => (
-                  <div
-                    key={idx}
-                    className="h-20 flex items-center gap-4 px-4 rounded-xl border bg-card text-card-foreground shadow"
-                  >
-                    <span>
-                      {true ? (
-                        <div className="w-5 h-5 rounded-full bg-green-500 dark:bg-green-600 flex items-center justify-center">
-                          <Check size={12} className="text-white" />
-                        </div>
-                      ) : (
-                        <Lock size={14} className="text-gray-600 dark:text-gray-400" />
-                      )}
-                    </span>
-                    <p className="text-left">{lecture.lectureTitle}</p>
-                  </div>
-                ))
-              ) : (
-                <p className="text-gray-500">No lectures available.</p>
-              )}
-            </CardContent>
-          </Card> */}
           <Card className="mt-6">
             <CardHeader>
               <CardTitle>Curriculum</CardTitle>
             </CardHeader>
-            {/* <CardContent className="space-y-3">
-    {course?.lectures?.length > 0 ? (
-      course.lectures.map((lecture, idx) => (
-        <div
-          key={idx}
-          className="h-20 flex items-center gap-4 px-4 rounded-xl border bg-card text-card-foreground shadow overflow-hidden"
-        >
-          <span className="flex-shrink-0">
-            {true ? (
-              <div className="w-5 h-5 rounded-full bg-green-500 dark:bg-green-600 flex items-center justify-center">
-                <Check size={12} className="text-white" />
-              </div>
-            ) : (
-              <Lock size={14} className="text-gray-600 dark:text-gray-400" />
-            )}
-          </span>
-          <p className="text-left text-sm font-medium truncate w-full">
-            {lecture.lectureTitle}
-          </p>
-        </div>
-      ))
-    ) : (
-      <p className="text-gray-500">No lectures available.</p>
-    )}
-  </CardContent> */}
             <CardContent className="space-y-4">
               {course?.lectures?.length > 0 ? (
                 course.lectures.map((lecture, idx) => {
@@ -214,8 +206,8 @@ const CourseDetail = () => {
                       {/* Smooth Dropdown Description */}
                       <div
                         className={`grid transition-all duration-300 ease-in-out ${isExpanded
-                            ? "grid-rows-[1fr] opacity-100"
-                            : "grid-rows-[0fr] opacity-0"
+                          ? "grid-rows-[1fr] opacity-100"
+                          : "grid-rows-[0fr] opacity-0"
                           }`}
                       >
                         <div className="overflow-hidden px-5 pb-4 text-sm text-zinc-600 dark:text-zinc-400"

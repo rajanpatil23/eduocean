@@ -37,6 +37,10 @@ import HighlightC from "./pages/student/highlight-Courses";
 import InterviewQuestions from "./pages/student/Interview-Questions";
 import CategoryPage from "./pages/student/CategoryPage";
 import CourseQuestions from "./pages/student/CourseQuestion";
+import AboutUs from "./pages/student/Aboutus";
+import PopForm from "./pages/Homepage/PopupForm";
+import { useEffect, useState } from "react";
+
 
 const appRouter = createBrowserRouter([
   {
@@ -73,6 +77,15 @@ const appRouter = createBrowserRouter([
         element: (
           <>
           <Becomeaninstructor/>
+          <Footer/>
+          </>
+        ),
+      },
+      {
+        path: "aboutus",
+        element: (
+          <>
+          <AboutUs/>
           <Footer/>
           </>
         ),
@@ -196,11 +209,18 @@ const appRouter = createBrowserRouter([
 ]);
 
 function App() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowPopup(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <main>
       <ThemeProvider>
       <RouterProvider router={appRouter} />
       <WhatsappChat/>
+      {showPopup && <PopForm onClose={() => setShowPopup(false)} />}
       </ThemeProvider>
     </main>
   );

@@ -184,6 +184,7 @@ const Footer = () => {
         { name: "Blogs", href: "#" },
         // { name: "Tutorials", href: "#" },
         // { name: "Practice Tests", href: "#" },
+        { name: "Aboutus", href: "/aboutus" },
         { name: "Interview Questions", href: "/interview-questions" },
         // { name: "Success Stories", href: "#" },
       ],
@@ -317,7 +318,7 @@ const Footer = () => {
                       <span className="text-xl text-gray-500 dark:text-gray-400">📍</span>
                       <div>
                         <p className="font-semibold text-gray-800 dark:text-gray-200">Address:</p>
-                        <p className="text-gray-600 dark:text-gray-300">1749 W Peterson Ave, Chicago, IL 60660</p>
+                        <p className="text-gray-600 dark:text-gray-300">45, 3rd Floor Village Dun, Near Yadav Hospital, Industrial Complex Dund, Industrial Complex Dundahera, Gurgaon, Industrial Complex Dundahera, Haryana, India, 122016</p>
                       </div>
                     </div>
 
@@ -326,7 +327,7 @@ const Footer = () => {
                       <span className="text-xl text-gray-500 dark:text-gray-400">📞</span>
                       <div>
                         <p className="font-semibold text-gray-800 dark:text-gray-200">Phone:</p>
-                        <p className="text-gray-600 dark:text-gray-300">+12019754817</p>
+                        <p className="text-gray-600 dark:text-gray-300">+12019754817, +919569720281</p>
                       </div>
                     </div>
 

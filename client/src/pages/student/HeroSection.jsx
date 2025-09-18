@@ -107,11 +107,15 @@ const HeroSection = () => {
 
 
         {/* Right Visual Grid */}
-        <div className="relative h-[400px] md:h-[600px]">
+        <div className="relative aspect-[16/9] md:aspect-[4/3]">
           <img
-            src="https://d2o2utebsixu4k.cloudfront.net/Webp-d0585444145e4b4a88e9a7f5f8f4588b.svg" // replace with your actual image path
+            // src="https://d2o2utebsixu4k.cloudfront.net/Webp-d0585444145e4b4a88e9a7f5f8f4588b.svg" // replace with your actual image path
+            // src="https://www.interviewhelp.io/static/media/coachGroup.56c5a7f9.png" // replace with your actual image path
+            src="https://theacdm.com/wp-content/uploads/2024/05/657a9920d173c_mentorship.webp" // replace with your actual image path
+            // src="https://res.cloudinary.com/dwyqvicfz/image/upload/v1750830488/banner_fgvjpw.webp" // replace with your actual image path
+            // src="https://in.interviewkickstart.com/wp-content/uploads/2024/08/637cc520f0dd525fa26fea24_home-v3-image-1-1024x877.png" // replace with your actual image path
             alt="Decorative"
-            className="w-full h-full object-cover rounded-xl"
+            className="object-cover rounded-xl"
           />
         </div>
       </div>

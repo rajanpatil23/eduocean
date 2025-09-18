@@ -151,7 +151,7 @@ const Course = ({ course }) => {
 
   return (
     <>
-      <div className="overflow-hidden rounded-lg bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+      <div className="overflow-hidden rounded-lg bg-white dark:bg-gray-800 border border-gray-200 transform hover:scale-105 transition-all duration-300">
         <div className="grid">
           <div className="course-card cloud active">
             <div className="max-w-sm bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden w-full relative">
