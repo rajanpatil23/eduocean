@@ -967,11 +967,11 @@ const Navbar = () => {
                         href={item.link}
                         className="flex items-center gap-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
                       >
-                        <img
+                        {/* <img
                           src={item.icon}
                           alt={item.name}
                           className="w-5 h-5"
-                        />
+                        /> */}
                         <span className="text-base text-gray-800 dark:text-gray-200 font-medium">
                           {item.name}
                         </span>

@@ -318,7 +318,7 @@ const Footer = () => {
                       <span className="text-xl text-gray-500 dark:text-gray-400">📍</span>
                       <div>
                         <p className="font-semibold text-gray-800 dark:text-gray-200">Address:</p>
-                        <p className="text-gray-600 dark:text-gray-300">45, 3rd Floor Village Dun, Near Yadav Hospital, Industrial Complex Dund, Industrial Complex Dundahera, Gurgaon, Industrial Complex Dundahera, Haryana, India, 122016</p>
+                        <p className="text-gray-600 dark:text-gray-300"><b>A1 Eduocean Solutions Private limited</b> <br></br>45, 3rd Floor Village Dun, Near Yadav Hospital, Industrial Complex Dund, Industrial Complex Dundahera, Gurgaon, Industrial Complex Dundahera, Haryana, India, 122016</p>
                       </div>
                     </div>
 

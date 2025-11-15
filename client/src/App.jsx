@@ -40,6 +40,7 @@ import CourseQuestions from "./pages/student/CourseQuestion";
 import AboutUs from "./pages/student/Aboutus";
 import PopForm from "./pages/Homepage/PopupForm";
 import { useEffect, useState } from "react";
+import CourseDetail2 from "./pages/student/CourseDetail2";
 
 
 const appRouter = createBrowserRouter([
@@ -152,7 +153,8 @@ const appRouter = createBrowserRouter([
         path: "course-detail/:courseId",
         element: (
           <>
-            <CourseDetail />
+            {/* <CourseDetail /> */}
+            <CourseDetail2/>
             <HighlightC/>
             <Footer />
           </>
