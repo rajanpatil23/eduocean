@@ -175,6 +175,14 @@
   text-decoration: underline;
 }
 
+.masterclass-hero-header {
+  width: 100%;
+}
+
+.masterclass-hero-actions {
+  width: 100%;
+}
+
 .masterclass-hero-image-wrap {
   display: flex;
   justify-content: center;
@@ -189,6 +197,15 @@
   height: auto;
   object-fit: contain;
   display: block;
+}
+
+/* Hide mobile image by default, show desktop image */
+.masterclass-hero-image-mobile {
+  display: none;
+}
+
+.masterclass-hero-image-desktop {
+  display: flex;
 }
 
 /* ========= BADGES ========= */
@@ -990,9 +1007,42 @@
   }
 }
 
+@media (max-width: 991px) {
+  /* Mobile: Show mobile image, hide desktop image */
+  .masterclass-hero-image-mobile {
+    display: flex;
+    margin: 1.5rem 0;
+  }
+
+  .masterclass-hero-image-desktop {
+    display: none;
+  }
+
+  /* Single column layout on mobile */
+  .masterclass-hero-inner {
+    flex-direction: column;
+  }
+
+  .masterclass-hero-content {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .masterclass-container {
     padding: 1.5rem 1rem;
+  }
+
+  /* Make badges full width and left-aligned on mobile */
+  .masterclass-hero-benefits {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .masterclass-benefit-card {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
   }
 
   .about-masterclass-inner {

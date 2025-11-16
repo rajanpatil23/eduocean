@@ -856,6 +856,7 @@ const Navbar = () => {
 
   const mainMenuItems = [
     // { name: "All Courses", href: "#" },
+    { name: "About", href: "/aboutus" },
     { name: "Resources", href: "#", dropdown: true },
     // { name: "Domain", href: "#", dropdown: true },
 
@@ -988,47 +989,55 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-4">
           {mainMenuItems.map((item) => (
             <div key={item.name} className="relative group">
-              <button
-                className="flex items-center text-[#363d47] hover:text-[#5358ec] px-2 py-2 text-sm font-medium dark:text-gray-200"
-                onClick={() => item.dropdown && toggleDropdown(item.name)}
-              >
-                {item.name}
-                {item.dropdown && (
-                  <ChevronDown
-                    className={`ml-1 h-4 w-4 transition-transform ${openDropdown === item.name ? "rotate-180" : ""
-                      }`}
-                  />
-                )}
-              </button>
+              {item.dropdown ? (
+                <>
+                  <button
+                    className="flex items-center text-[#363d47] hover:text-[#5358ec] px-2 py-2 text-sm font-medium dark:text-gray-200"
+                    onClick={() => toggleDropdown(item.name)}
+                  >
+                    {item.name}
+                    <ChevronDown
+                      className={`ml-1 h-4 w-4 transition-transform ${openDropdown === item.name ? "rotate-180" : ""
+                        }`}
+                    />
+                  </button>
 
-              {item.dropdown && openDropdown === item.name && (
-                <div className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 dark:ring-gray-600 p-2 z-50">
-                  <div className="py-1">
-                    <Link
-                      to="/Become-an-instructor"
-                      onClick={() => setOpenDropdown(null)}
-                      className="flex items-center text-[#363d47] hover:text-[#5358ec] px-2 py-2 text-sm font-medium dark:text-gray-200 dark:hover:text-[#5358ec]"
-                    >
-                      Become an Instructor
-                    </Link>
-                    <Link
-                      to="/interview-preprations"
-                      onClick={() => setOpenDropdown(null)}
-                      className="flex items-center text-[#363d47] hover:text-[#5358ec] px-2 py-2 text-sm font-medium dark:text-gray-200 dark:hover:text-[#5358ec]"
-                    >
-                      Interview Prepration
-                    </Link>
-                    <Link
-                      to="/interview-questions"
-                      onClick={() => setOpenDropdown(null)}
-                      className="flex items-center text-[#363d47] hover:text-[#5358ec] px-2 py-2 text-sm font-medium dark:text-gray-200 dark:hover:text-[#5358ec]"
-                    >
-                      Interview Questions
-                    </Link>
-                  </div>
-                </div>
+                  {openDropdown === item.name && (
+                    <div className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 dark:ring-gray-600 p-2 z-50">
+                      <div className="py-1">
+                        <Link
+                          to="/Become-an-instructor"
+                          onClick={() => setOpenDropdown(null)}
+                          className="flex items-center text-[#363d47] hover:text-[#5358ec] px-2 py-2 text-sm font-medium dark:text-gray-200 dark:hover:text-[#5358ec]"
+                        >
+                          Become an Instructor
+                        </Link>
+                        <Link
+                          to="/interview-preprations"
+                          onClick={() => setOpenDropdown(null)}
+                          className="flex items-center text-[#363d47] hover:text-[#5358ec] px-2 py-2 text-sm font-medium dark:text-gray-200 dark:hover:text-[#5358ec]"
+                        >
+                          Interview Prepration
+                        </Link>
+                        <Link
+                          to="/interview-questions"
+                          onClick={() => setOpenDropdown(null)}
+                          className="flex items-center text-[#363d47] hover:text-[#5358ec] px-2 py-2 text-sm font-medium dark:text-gray-200 dark:hover:text-[#5358ec]"
+                        >
+                          Interview Questions
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link
+                  to={item.href}
+                  className="flex items-center text-[#363d47] hover:text-[#5358ec] px-2 py-2 text-sm font-medium dark:text-gray-200"
+                >
+                  {item.name}
+                </Link>
               )}
-
             </div>
           ))}
 
@@ -1253,6 +1262,9 @@ const MobileNavbar = ({ user }) => {
           <Separator className="my-2" />
 
           <nav className="flex flex-col space-y-4">
+            <Link to="/aboutus" onClick={() => setOpen(false)}>
+              About
+            </Link>
             <Link to="/Become-an-instructor" onClick={() => setOpen(false)}>
               Become an Instructor
             </Link>
@@ -1261,6 +1273,9 @@ const MobileNavbar = ({ user }) => {
             </Link>
             <Link to="/interview-questions" onClick={() => setOpen(false)}>
               Interview Questions
+            </Link>
+            <Link to="/master-classes" onClick={() => setOpen(false)}>
+              Master Classes
             </Link>
             <Link to="/interview-preprations" onClick={() => setOpen(false)}>
               Project Help

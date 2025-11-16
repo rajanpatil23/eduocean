@@ -6,71 +6,86 @@ const HeroSection = ({ timeLeft, onReserveClick }) => {
   return (
     <section className="masterclass-hero">
       <div className="masterclass-hero-inner masterclass-container">
-        {/* Left Column: Content */}
+        {/* Desktop: Left Column / Mobile: Top Section */}
         <div className="masterclass-hero-content">
-          <h1 className="masterclass-hero-title">
-            Pass Your PMP in 10 Days : Learn 
-            the Exact Strategy LIVE
-          </h1>
+          {/* Title and Description - Always on top */}
+          <div className="masterclass-hero-header">
+            <h1 className="masterclass-hero-title">
+              Pass Your PMP in 10 Days : Learn 
+              the Exact Strategy LIVE
+            </h1>
 
-          <p className="masterclass-hero-subtitle">
-            A fast, proven, exam-ready method to help you confidently clear PMP® -
-            even if you&apos;re starting late or feeling stuck.
-          </p>
-
-          <div className="masterclass-hero-price">
-            <span className="masterclass-hero-price-original">$50</span>
-            <span className="masterclass-hero-price-current">FREE Today</span>
-            <span className="masterclass-hero-price-note">(Limited Seats)</span>
+            <p className="masterclass-hero-subtitle">
+              A fast, proven, exam-ready method to help you confidently clear PMP® -
+              even if you&apos;re starting late or feeling stuck.
+            </p>
           </div>
 
-          <div className="masterclass-hero-countdown">
-            <p className="masterclass-hero-countdown-label">
-              Next Session Starts In
-            </p>
-            <div className="masterclass-countdown-grid">
-              <div className="masterclass-countdown-item">
-                <span>{days}</span>
-                <small>Days</small>
-              </div>
-              <div className="masterclass-countdown-item">
-                <span>{hours}</span>
-                <small>Hours</small>
-              </div>
-              <div className="masterclass-countdown-item">
-                <span>{minutes}</span>
-                <small>Minutes</small>
-              </div>
-              <div className="masterclass-countdown-item">
-                <span>{seconds}</span>
-                <small>Seconds</small>
+          {/* Image - Shows here on mobile only */}
+          <div className="masterclass-hero-image-wrap masterclass-hero-image-mobile">
+            <img
+              src="/Instructor.svg"
+              alt="PMP Instructor"
+              className="masterclass-hero-image"
+            />
+          </div>
+
+          {/* Remaining Content - Price, Countdown, CTAs */}
+          <div className="masterclass-hero-actions">
+            <div className="masterclass-hero-price">
+              <span className="masterclass-hero-price-original">$50</span>
+              <span className="masterclass-hero-price-current">FREE Today</span>
+              <span className="masterclass-hero-price-note">(Limited Seats)</span>
+            </div>
+
+            <div className="masterclass-hero-countdown">
+              <p className="masterclass-hero-countdown-label">
+                Next Session Starts In
+              </p>
+              <div className="masterclass-countdown-grid">
+                <div className="masterclass-countdown-item">
+                  <span>{days}</span>
+                  <small>Days</small>
+                </div>
+                <div className="masterclass-countdown-item">
+                  <span>{hours}</span>
+                  <small>Hours</small>
+                </div>
+                <div className="masterclass-countdown-item">
+                  <span>{minutes}</span>
+                  <small>Minutes</small>
+                </div>
+                <div className="masterclass-countdown-item">
+                  <span>{seconds}</span>
+                  <small>Seconds</small>
+                </div>
               </div>
             </div>
-          </div>
 
-          <button
-            className="masterclass-btn-primary"
-            onClick={onReserveClick}
-          >
-            Reserve Your Free Seat Now
-          </button>
-
-          <p className="masterclass-hero-secondary-cta">
-            Want faster results?{" "}
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                console.log("Book a 1:1 Strategy Call");
-              }}
+            <button
+              className="masterclass-btn-primary"
+              onClick={onReserveClick}
             >
-              Book a 1:1 Strategy Call
-            </a>
-          </p>
+              Reserve Your Free Seat Now
+            </button>
+
+            <p className="masterclass-hero-secondary-cta">
+              Want faster results?{" "}
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  console.log("Book a 1:1 Strategy Call");
+                }}
+              >
+                Book a 1:1 Strategy Call
+              </a>
+            </p>
+          </div>
         </div>
 
-        {/* Right Column: Tutor Image */}
-        <div className="masterclass-hero-image-wrap">
+        {/* Desktop: Right Column / Mobile: Hidden */}
+        <div className="masterclass-hero-image-wrap masterclass-hero-image-desktop">
           <img
             src="/Instructor.svg"
             alt="PMP Instructor"
