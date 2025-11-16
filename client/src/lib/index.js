@@ -1,5 +1,6 @@
 const dev = "http://localhost:8080";
-const prod = "https://mern-todo.surge.sh";
+const prod = "https://theduocean.com";
+// const prod = "https://mern-todo.surge.sh";
 
 export const basedURL =
   window.location.hostname.split(":")[0] === "localhost" ||

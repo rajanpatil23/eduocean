@@ -41,6 +41,7 @@ import AboutUs from "./pages/student/Aboutus";
 import PopForm from "./pages/Homepage/PopupForm";
 import { useEffect, useState } from "react";
 import CourseDetail2 from "./pages/student/CourseDetail2";
+import MasterClasses from "./pages/student/MasterClasses";
 
 
 const appRouter = createBrowserRouter([
@@ -96,6 +97,15 @@ const appRouter = createBrowserRouter([
         element: (
           <>
           <InterviewQuestions/>
+          <Footer/>
+          </>
+        ),
+      },
+      {
+        path: "master-classes",
+        element: (
+          <>
+          <MasterClasses/>
           <Footer/>
           </>
         ),

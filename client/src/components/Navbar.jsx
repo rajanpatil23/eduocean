@@ -889,13 +889,13 @@ const Navbar = () => {
 
 
 
-        <div className="flex items-center gap-3 w-full max-w-lg" ref={dropdownRef}>
+        <div className="flex items-center gap-3 flex-1 max-w-2xl" ref={dropdownRef}>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="w-full sm:w-auto text-left px-3 sm:px-4 py-2 text-sm sm:text-base text-gray-700 dark:text-gray-200 font-medium bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 focus:outline-none border border-gray-300 dark:border-gray-600 shadow-md rounded-[0.5rem]"
+            className="whitespace-nowrap text-left px-3 sm:px-4 py-2 text-sm sm:text-base text-gray-700 dark:text-gray-200 font-medium bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 focus:outline-none border border-gray-300 dark:border-gray-600 shadow-md rounded-[0.5rem]"
           >
-            <span className="truncate">All Courses</span>
+            <span>All Courses</span>
             <ChevronDownIcon
               className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform ${isOpen ? "rotate-180" : ""}`}
             />
@@ -904,14 +904,14 @@ const Navbar = () => {
 
           <form
             onSubmit={searchHandler}
-            className="flex items-center bg-white dark:bg-gray-800 rounded-[0.5rem] shadow-md overflow-hidden flex-grow"
+            className="flex items-center bg-white dark:bg-gray-800 rounded-[0.5rem] shadow-md overflow-hidden flex-1"
           >
             <Input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search Courses"
-              className="text-left flex-grow border-none focus:outline-none focus:ring-0 px-4 py-2 text-gray-900 dark:text-white placeholder-grey-400 dark:placeholder-gray-400"
+              className="w-full border-none focus:outline-none focus:ring-0 px-4 py-2 text-gray-900 dark:text-white placeholder-grey-400 dark:placeholder-gray-400"
 
             />
           </form>
@@ -986,11 +986,6 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
-          <div className="relative group">
-            <Link to="https://www.linkedin.com/company/theeduocean/?viewAsMember=true" className="flex items-center text-[#363d47] hover:text-[#5358ec] px-2 py-2 text-sm font-medium dark:text-gray-200">
-              LinkedIn
-            </Link>
-          </div>
           {mainMenuItems.map((item) => (
             <div key={item.name} className="relative group">
               <button
@@ -1023,6 +1018,13 @@ const Navbar = () => {
                     >
                       Interview Prepration
                     </Link>
+                    <Link
+                      to="/interview-questions"
+                      onClick={() => setOpenDropdown(null)}
+                      className="flex items-center text-[#363d47] hover:text-[#5358ec] px-2 py-2 text-sm font-medium dark:text-gray-200 dark:hover:text-[#5358ec]"
+                    >
+                      Interview Questions
+                    </Link>
                   </div>
                 </div>
               )}
@@ -1032,10 +1034,10 @@ const Navbar = () => {
 
           <div className="relative group">
             <Link
-              to="/interview-questions"
+              to="/master-classes"
               className="flex items-center whitespace-nowrap text-[#363d47] hover:text-[#5358ec] px-2 py-2 text-sm font-medium dark:text-gray-200"
             >
-            Interview Questions
+              Master Classes
             </Link>
           </div>
         </div>
@@ -1251,20 +1253,17 @@ const MobileNavbar = ({ user }) => {
           <Separator className="my-2" />
 
           <nav className="flex flex-col space-y-4">
-            <Link to="https://www.linkedin.com/company/theeduocean/?viewAsMember=true" onClick={() => setOpen(false)}>
-              LinkedIn
-            </Link>
             <Link to="/Become-an-instructor" onClick={() => setOpen(false)}>
               Become an Instructor
             </Link>
             <Link to="/interview-preprations" onClick={() => setOpen(false)}>
               Interview Preparation
             </Link>
+            <Link to="/interview-questions" onClick={() => setOpen(false)}>
+              Interview Questions
+            </Link>
             <Link to="/interview-preprations" onClick={() => setOpen(false)}>
               Project Help
-            </Link>
-            <Link to="/interview-questions" onClick={() => setOpen(false)}>
-            Interview Questions
             </Link>
 
             {user ? (
