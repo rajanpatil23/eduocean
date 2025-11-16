@@ -472,7 +472,7 @@
 /* ========= LEARN SECTION ========= */
 .learn-section {
   text-align: center;
-  padding: 5rem 1rem;
+  padding: 3rem 1rem;
   background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
   color: var(--text-main);
 }
@@ -550,7 +550,7 @@
 /* ========= INSTRUCTOR SECTION ========= */
 .instructor-section {
   background: #ffffff;
-  padding: 5rem 1rem 5.5rem;
+  padding: 3rem 1rem;
   text-align: center;
   color: var(--text-main);
 }
@@ -677,7 +677,7 @@
 /* ========= WHO SECTION ========= */
 .who-section {
   background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
-  padding: 5rem 1rem 6rem;
+  padding: 3rem 1rem;
   text-align: center;
   color: var(--text-main);
 }
@@ -893,7 +893,7 @@
 /* ========= FAQ SECTION ========= */
 .faq-section {
   background: #ffffff;
-  padding: 4.5rem 1rem 5rem;
+  padding: 3rem 1rem;
   color: var(--text-main);
 }
 
@@ -915,7 +915,7 @@
   text-align: center;
   font-size: 1.875rem;
   font-weight: 700;
-  margin-bottom: 2.4rem;
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -1091,6 +1091,14 @@
     font-size: 0.95rem;
   }
 
+  .learn-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .instructor-section {
+    padding: 2.5rem 1rem;
+  }
+
   .instructor-title {
     margin-bottom: 3rem;
   }
@@ -1119,7 +1127,7 @@
   }
 
   .who-section {
-    padding: 4rem 1.25rem 5rem;
+    padding: 2.5rem 1.25rem;
   }
 
   .who-subtitle {
@@ -1140,7 +1148,7 @@
   }
 
   .faq-section {
-    padding: 4rem 1.25rem 4.5rem;
+    padding: 2.5rem 1.25rem;
   }
 }
 

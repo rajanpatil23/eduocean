@@ -68,8 +68,8 @@ const MasterClasses = () => {
       description: "Intensive workshop covering PMP exam strategies and project management best practices",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop",
       date: "2025-02-15",
-      time: "10:00 AM - 4:00 PM",
-      instructor: "Rajesh Kumar, PMP",
+      time: "10:00 AM - 4:00 PM EST",
+      instructor: "The Edu Ocean Expert",
       isPast: false
     },
     {

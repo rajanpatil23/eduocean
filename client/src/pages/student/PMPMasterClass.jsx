@@ -8,11 +8,13 @@ import WhoSection from "./masterclass-components/WhoSection";
 import FaqSection from "./masterclass-components/FaqSection";
 import CtaSection from "./masterclass-components/CtaSection";
 import ReservationModal from "./masterclass-components/ReservationModal";
+import ContactModal from "./masterclass-components/ContactModal";
 import "./PMPMasterClass.css";
 
 const PMPMasterClass = () => {
   const [timeLeft, setTimeLeft] = useState(getTimeRemaining());
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   // Load Font Awesome
   useEffect(() => {
@@ -44,10 +46,22 @@ const PMPMasterClass = () => {
     setIsModalOpen(false);
   };
 
+  const handleOpenContactModal = () => {
+    setIsContactModalOpen(true);
+  };
+
+  const handleCloseContactModal = () => {
+    setIsContactModalOpen(false);
+  };
+
   return (
     <div className="masterclass-page">
       <main>
-        <HeroSection timeLeft={timeLeft} onReserveClick={handleOpenModal} />
+        <HeroSection 
+          timeLeft={timeLeft} 
+          onReserveClick={handleOpenModal}
+          onContactClick={handleOpenContactModal}
+        />
         <AboutSection onReserveClick={handleOpenModal} />
         <LearnSection onReserveClick={handleOpenModal} />
         <InstructorSection />
@@ -57,6 +71,7 @@ const PMPMasterClass = () => {
       </main>
       
       <ReservationModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <ContactModal isOpen={isContactModalOpen} onClose={handleCloseContactModal} />
     </div>
   );
 };

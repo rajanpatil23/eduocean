@@ -1,6 +1,6 @@
 import React from "react";
 
-const HeroSection = ({ timeLeft, onReserveClick }) => {
+const HeroSection = ({ timeLeft, onReserveClick, onContactClick }) => {
   const { days, hours, minutes, seconds } = timeLeft;
 
   return (
@@ -75,7 +75,7 @@ const HeroSection = ({ timeLeft, onReserveClick }) => {
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log("Book a 1:1 Strategy Call");
+                  onContactClick();
                 }}
               >
                 Book a 1:1 Strategy Call

@@ -31,9 +31,9 @@ export const LEARNING_ITEMS = [
 ];
 
 export const INSTRUCTOR_INFO = {
-  name: "Sunil Agrawala, MS, PMP",
+  name: "By The Edu Ocean Expert",
   title: "PMI Approved Instructor for PMP & CAPM",
-  organization: "Florida Institute of Technology",
+  organization: "The Edu Ocean",
   experience: [
     "Ex Bell Labs",
     "Ex Cap Gemini",
@@ -41,7 +41,7 @@ export const INSTRUCTOR_INFO = {
     "Ex Satyam"
   ],
   achievement: "Trained 25,000+ professionals across the globe",
-  description: "Sunil brings decades of real-world project leadership and is known for simplifying complex PMP concepts into easy, exam-focused instruction."
+  description: "Our expert brings decades of real-world project leadership and is known for simplifying complex PMP concepts into easy, exam-focused instruction."
 };
 
 export const WHO_IS_THIS_FOR = {
