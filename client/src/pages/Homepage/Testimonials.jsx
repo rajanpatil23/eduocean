@@ -4,32 +4,32 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: "Kenzie Edgar",
-      image: "https://i.pravatar.cc/100?img=1",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces",
       text: "The courses at Eduocean were life-changing! The content was well-structured, and the instructors were experts in their fields. I learned so much and gained skills that helped me advance in my career!"
     },
     {
       name: "Stevie Tifft",
-      image: "https://i.pravatar.cc/100?img=2",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=faces",
       text: "Eduocean made learning fun and easy! The interactive lessons and the support from the community made it easy to stay motivated and engaged throughout the course."
     },
     {
       name: "Tommie Ewart",
-      image: "https://i.pravatar.cc/100?img=3",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=faces",
       text: "I had an amazing experience with Eduocean. The courses are comprehensive, and the tutors are always available to provide guidance and assistance. I highly recommend it to anyone looking to expand their knowledge!"
     },
     {
       name: "Charlie Howse",
-      image: "https://i.pravatar.cc/100?img=4",
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=faces",
       text: "Eduocean has transformed the way I learn. The platform is user-friendly, and I was able to easily track my progress. The real-world examples in the courses helped me understand the subject matter better."
     },
     {
       name: "Nevada Herbertson",
-      image: "https://i.pravatar.cc/100?img=5",
+      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&crop=faces",
       text: "Eduocean's courses provided me with practical knowledge that I could apply right away. The instructors were supportive, and the materials were detailed. I feel confident using what I learned in my professional life."
     },
     {
       name: "Kris Stanton",
-      image: "https://i.pravatar.cc/100?img=6",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=faces",
       text: "The Eduocean experience was fantastic! The courses are well-organized, and I appreciated the flexible learning schedule. I now have a solid understanding of the subjects I studied and can apply them confidently."
     }
   ];

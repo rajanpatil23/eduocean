@@ -77,10 +77,10 @@ const MasterClasses = () => {
       title: "AWS Solutions Architect Bootcamp",
       description: "Master AWS architecture patterns and prepare for SAA-C03 certification",
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=300&fit=crop",
-      date: "2025-02-22",
+      date: "2024-11-22",
       time: "9:00 AM - 5:00 PM",
       instructor: "Priya Sharma, AWS Certified",
-      isPast: false
+      isPast: true
     },
     {
       id: 3,
