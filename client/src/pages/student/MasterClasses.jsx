@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useGetPublishedCourseQuery } from "@/features/api/courseApi";
 import { useSubmitContactFormAdvisorMutation } from "@/features/api/authApi";
 
 const MasterClasses = () => {
+  const navigate = useNavigate();
   const { data: coursesData, isLoading: coursesLoading } = useGetPublishedCourseQuery();
   const courses = coursesData?.courses || [];
   const [submitContact, { isLoading: isSubmitting }] = useSubmitContactFormAdvisorMutation();
@@ -220,6 +222,11 @@ const MasterClasses = () => {
 
                   <button
                     disabled={masterClass.isPast}
+                    onClick={() => {
+                      if (masterClass.id === 1) {
+                        navigate('/master-classes/pmp-certification');
+                      }
+                    }}
                     className={`mt-4 w-full py-2 rounded-lg font-medium transition-colors ${
                       masterClass.isPast
                         ? 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
