@@ -67,9 +67,9 @@ const MasterClasses = () => {
       title: "PMP Certification Masterclass",
       description: "Intensive workshop covering PMP exam strategies and project management best practices",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop",
-      date: "2025-02-15",
+      date: "2025-11-22",
       time: "10:30 AM - 11:30 AM EST",
-      instructor: "The Edu Ocean Expert",
+      instructor: "EduOcean Expert",
       isPast: false
     },
     {
