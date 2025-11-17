@@ -42,11 +42,11 @@ const ReservationModal = ({ isOpen, onClose }) => {
 
         <form 
           action='https://webinar.zoho.in/meeting/WebForm'  
-          name='WebForm1206513000000045021' 
+          name='WebForm1280205000000017061' 
           method='POST' 
           onSubmit={(e) => {
             const form = e.target;
-            if (window.checkMandatory1206513000000045021 && !window.checkMandatory1206513000000045021()) {
+            if (window.checkMandatory1280205000000017061 && !window.checkMandatory1280205000000017061()) {
               e.preventDefault();
               return false;
             }
@@ -56,12 +56,12 @@ const ReservationModal = ({ isOpen, onClose }) => {
           acceptCharset='UTF-8'
           className="space-y-3 sm:space-y-4"
         >
-          <input type='text' style={{display: 'none'}} name='xnQsjsdp' value='e7942abc8c278578f92bebfad582487371d27cf38f30678d0c85ee8263e3fa1d' /> 
+          <input type='text' style={{display: 'none'}} name='xnQsjsdp' value='e182a1d09903d28df099b94f155de74ac4c02ebf0fbea5b7483fa4994235cb1d' /> 
           <input type='hidden' name='zc_gad' id='zc_gad' value='' /> 
-          <input type='text' style={{display: 'none'}} name='xmIwtLD' value='fb942cb4febbb5f329fcdd8625c57dba6b85a26d7b7c1771b670a0a82f14b3e2bf32104bbd89a790e644952bd28bb1b1' /> 
+          <input type='text' style={{display: 'none'}} name='xmIwtLD' value='578a3193d684d1b5ef5f93115fc742e4d19f1c559d8b88e14f2908d0eaf73fe007addc57f94bdba80f1d161bc87dd43d' /> 
           <input type='text' style={{display: 'none'}} name='actionType' value='UmVnaXN0cmF0aW9ucw==' /> 
           <input type='text' style={{display: 'none'}} name='returnURL' value='https://webinar.zoho.in/postregister' /> 
-          <input type='text' style={{display: 'none'}} name='sysId' value='1206513000000045010' /> 
+          <input type='text' style={{display: 'none'}} name='sysId' value='1280205000000017046' /> 
           <input type='text' style={{display: 'none'}} name='isEmbedForm' value='true' />
 
           <div>
@@ -118,23 +118,23 @@ const ReservationModal = ({ isOpen, onClose }) => {
               name='REGISTRATIONCF4' 
               className="mt-1 w-full rounded-lg border border-gray-300 p-2.5 sm:p-3 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 text-sm sm:text-base"
             >
-              <option value="">-- Choose a Country --</option>
-              <option value='1206513000000004136'>India</option>
-              <option value='1206513000000004404'>United Arab Emirates</option>
-              <option value='1206513000000004408'>United States</option>
-              <option value='1206513000000004406'>United Kingdom</option>
-              <option value='1206513000000004014'>Canada</option>
-              <option value='1206513000000003960'>Australia</option>
-              <option value='1206513000000004330'>Singapore</option>
-              <option value='1206513000000004098'>Germany</option>
-              <option value='1206513000000004084'>France</option>
-              <option value='1206513000000004196'>Malaysia</option>
+              <option value="">None</option>
+              <option value='1280205000000004136'>India</option>
+              <option value='1280205000000004404'>United Arab Emirates</option>
+              <option value='1280205000000004408'>United States</option>
+              <option value='1280205000000004406'>United Kingdom</option>
+              <option value='1280205000000004014'>Canada</option>
+              <option value='1280205000000003960'>Australia</option>
+              <option value='1280205000000004330'>Singapore</option>
+              <option value='1280205000000004098'>Germany</option>
+              <option value='1280205000000004084'>France</option>
+              <option value='1280205000000004196'>Malaysia</option>
             </select>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">
-              Contact Number <span className="text-red-500">*</span>
+              Phone <span className="text-red-500">*</span>
             </label>
             <input 
               type='text' 
@@ -155,20 +155,20 @@ const ReservationModal = ({ isOpen, onClose }) => {
       </div>
       
       <script dangerouslySetInnerHTML={{__html: `
-        var mndFileds=new Array('NAME','EMAIL','REGISTRATIONCF7','REGISTRATIONCF4');
-        var fldLangVal=new Array('Full Name','E-mail','Phone','Country/Region');
+        var mndFileds=new Array('NAME','EMAIL','REGISTRATIONCF4','REGISTRATIONCF7');
+        var fldLangVal=new Array('Full Name','E-mail','Country/Region','Phone');
         
-        function checkMandatory1206513000000045021(){
+        function checkMandatory1280205000000017061(){
           var emailPattern = /^([^\\s@<>]{1,200})@([^\\s@<>]{1,300})$/; 
           for(i=0;i<mndFileds.length;i++){ 
-            var fieldObj=document.forms['WebForm1206513000000045021'][mndFileds[i]];
+            var fieldObj=document.forms['WebForm1280205000000017061'][mndFileds[i]];
             if(fieldObj) {
               if(((fieldObj.value).replace(/^\\s+|\\s+$/g, '')).length==0){
                 alert(fldLangVal[i] +' cannot be empty.'); 
                 fieldObj.focus(); 
                 return false;
               }else if(fieldObj.nodeName=='SELECT'){
-                if(fieldObj.options[fieldObj.selectedIndex].value=='-None-' || fieldObj.options[fieldObj.selectedIndex].value==''){
+                if(fieldObj.options[fieldObj.selectedIndex].value=='-None-'){
                   alert(fldLangVal[i] +' cannot be none.'); 
                   fieldObj.focus(); 
                   return false;
@@ -191,7 +191,7 @@ const ReservationModal = ({ isOpen, onClose }) => {
           }
           return true;
         }
-        window.checkMandatory1206513000000045021 = checkMandatory1206513000000045021;
+        window.checkMandatory1280205000000017061 = checkMandatory1280205000000017061;
       `}} />
     </div>
   );
