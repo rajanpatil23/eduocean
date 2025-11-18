@@ -1,7 +1,8 @@
 import React from "react";
-import { WHO_IS_THIS_FOR } from "./constants";
 
-const WhoSection = ({ onReserveClick }) => {
+const WhoSection = ({ onReserveClick, config }) => {
+  const whoContent = config.whoIsThisFor;
+  
   const renderItem = (text, index) => (
     <div className="who-item" key={text}>
       <div className="who-icon-wrapper">
@@ -19,10 +20,10 @@ const WhoSection = ({ onReserveClick }) => {
 
       <div className="who-grid">
         <div className="who-column">
-          {WHO_IS_THIS_FOR.left.map((item, idx) => renderItem(item, idx))}
+          {whoContent.left.map((item, idx) => renderItem(item, idx))}
         </div>
         <div className="who-column">
-          {WHO_IS_THIS_FOR.right.map((item, idx) => renderItem(item, idx))}
+          {whoContent.right.map((item, idx) => renderItem(item, idx))}
         </div>
       </div>
 

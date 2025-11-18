@@ -1,7 +1,14 @@
 import React from "react";
 
-const HeroSection = ({ timeLeft, onReserveClick, onContactClick }) => {
+const HeroSection = ({ timeLeft, onReserveClick, onContactClick, config }) => {
   const { days, hours, minutes, seconds } = timeLeft;
+
+  const content = {
+    title: config.title,
+    subtitle: config.heroSubtitle,
+    date: config.displayDate,
+    time: config.displayTime
+  };
 
   return (
     <section className="masterclass-hero">
@@ -11,13 +18,11 @@ const HeroSection = ({ timeLeft, onReserveClick, onContactClick }) => {
           {/* Title and Description - Always on top */}
           <div className="masterclass-hero-header">
             <h1 className="masterclass-hero-title">
-              Pass Your PMP in 10 Days : Learn 
-              the Exact Strategy LIVE
+              {content.title}
             </h1>
 
             <p className="masterclass-hero-subtitle">
-              A fast, proven, exam-ready method to help you confidently clear PMP® -
-              even if you&apos;re starting late or feeling stuck.
+              {content.subtitle}
             </p>
           </div>
 
@@ -130,24 +135,24 @@ const HeroSection = ({ timeLeft, onReserveClick, onContactClick }) => {
       <div className="masterclass-hero-strip">
         <div className="masterclass-hero-strip-inner">
           <div className="masterclass-hero-strip-item">
-            ⏰ 10:30 AM EST | 6:30 PM UAE
+            {content.time}
           </div>
           <div className="masterclass-hero-strip-item">🔖 Limited Seats!</div>
           <div className="masterclass-hero-strip-item">⏳ Hurry Up!</div>
           <div className="masterclass-hero-strip-item">🚀 Upskill Now!</div>
           <div className="masterclass-hero-strip-item">
-            📅 22nd November, Saturday
+            {content.date}
           </div>
 
           {/* duplicate for loop effect */}
           <div className="masterclass-hero-strip-item">
-            ⏰ 10:30 AM EST | 6:30 PM UAE
+            {content.time}
           </div>
           <div className="masterclass-hero-strip-item">🔖 Limited Seats!</div>
           <div className="masterclass-hero-strip-item">⏳ Hurry Up!</div>
           <div className="masterclass-hero-strip-item">🚀 Upskill Now!</div>
           <div className="masterclass-hero-strip-item">
-            📅 22nd November, Saturday
+            {content.date}
           </div>
         </div>
       </div>

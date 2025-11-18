@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getTimeRemaining } from "./masterclass-components/constants";
+import { useParams, useNavigate } from "react-router-dom";
+import { getMasterclassBySlug } from "./masterclass-components/masterclass-configs";
+import { getTimeRemaining } from "./masterclass-components/masterclass-configs/utils";
 import HeroSection from "./masterclass-components/HeroSection";
 import AboutSection from "./masterclass-components/AboutSection";
 import LearnSection from "./masterclass-components/LearnSection";
@@ -7,14 +9,30 @@ import InstructorSection from "./masterclass-components/InstructorSection";
 import WhoSection from "./masterclass-components/WhoSection";
 import FaqSection from "./masterclass-components/FaqSection";
 import CtaSection from "./masterclass-components/CtaSection";
-import ReservationModal from "./masterclass-components/ReservationModal";
+import DynamicReservationModal from "./masterclass-components/DynamicReservationModal";
 import ContactModal from "./masterclass-components/ContactModal";
 import "./PMPMasterClass.css";
 
-const PMPMasterClass = () => {
-  const [timeLeft, setTimeLeft] = useState(getTimeRemaining());
+const MasterClassDetail = () => {
+  const { slug } = useParams();
+  const navigate = useNavigate();
+  const config = getMasterclassBySlug(slug);
+
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+  // If config not found or is past event, redirect
+  useEffect(() => {
+    if (!config) {
+      navigate('/master-classes');
+      return;
+    }
+    if (config.isPast) {
+      navigate('/master-classes');
+      return;
+    }
+  }, [config, navigate]);
 
   // Load Font Awesome
   useEffect(() => {
@@ -32,11 +50,16 @@ const PMPMasterClass = () => {
 
   // Update countdown every second
   useEffect(() => {
+    if (!config) return;
+    
+    setTimeLeft(getTimeRemaining(config.eventDate));
+    
     const intervalId = setInterval(() => {
-      setTimeLeft(getTimeRemaining());
+      setTimeLeft(getTimeRemaining(config.eventDate));
     }, 1000);
+    
     return () => clearInterval(intervalId);
-  }, []);
+  }, [config]);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -54,6 +77,10 @@ const PMPMasterClass = () => {
     setIsContactModalOpen(false);
   };
 
+  if (!config) {
+    return null;
+  }
+
   return (
     <div className="masterclass-page">
       <main>
@@ -61,19 +88,24 @@ const PMPMasterClass = () => {
           timeLeft={timeLeft} 
           onReserveClick={handleOpenModal}
           onContactClick={handleOpenContactModal}
+          config={config}
         />
-        <AboutSection onReserveClick={handleOpenModal} />
-        <LearnSection onReserveClick={handleOpenModal} />
-        <InstructorSection />
-        <WhoSection onReserveClick={handleOpenModal} />
-        <FaqSection />
-        <CtaSection onReserveClick={handleOpenModal} />
+        <AboutSection onReserveClick={handleOpenModal} config={config} />
+        <LearnSection onReserveClick={handleOpenModal} config={config} />
+        <InstructorSection config={config} />
+        <WhoSection onReserveClick={handleOpenModal} config={config} />
+        <FaqSection config={config} />
+        <CtaSection onReserveClick={handleOpenModal} config={config} />
       </main>
       
-      <ReservationModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <DynamicReservationModal 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal}
+        config={config}
+      />
       <ContactModal isOpen={isContactModalOpen} onClose={handleCloseContactModal} />
     </div>
   );
 };
 
-export default PMPMasterClass;
+export default MasterClassDetail;

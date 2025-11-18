@@ -42,7 +42,7 @@ import PopForm from "./pages/Homepage/PopupForm";
 import { useEffect, useState } from "react";
 import CourseDetail2 from "./pages/student/CourseDetail2";
 import MasterClasses from "./pages/student/MasterClasses";
-import PMPMasterClass from "./pages/student/PMPMasterClass";
+import MasterClassDetail from "./pages/student/MasterClassDetail";
 
 
 const appRouter = createBrowserRouter([
@@ -106,17 +106,17 @@ const appRouter = createBrowserRouter([
         path: "master-classes",
         element: (
           <>
-          <MasterClasses/>
-          <Footer/>
+            <MasterClasses />
+            <Footer />
           </>
         ),
       },
       {
-        path: "master-classes/pmp-certification",
+        path: "master-classes/:slug",
         element: (
           <>
-          <PMPMasterClass/>
-          <Footer/>
+            <MasterClassDetail />
+            <Footer />
           </>
         ),
       },

@@ -1,7 +1,7 @@
 import React from "react";
-import { INSTRUCTOR_INFO } from "./constants";
 
-const InstructorSection = () => {
+const InstructorSection = ({ config }) => {
+  const instructor = config.instructor;
   return (
     <section className="instructor-section">
       <h2 className="instructor-title">Meet Your Expert Trainer</h2>
@@ -19,13 +19,13 @@ const InstructorSection = () => {
 
         <div className="instructor-card">
           <div className="instructor-name">
-            {INSTRUCTOR_INFO.name}
+            {instructor.name}
           </div>
-          <div className="instructor-role">{INSTRUCTOR_INFO.title}</div>
-          <div className="instructor-org">{INSTRUCTOR_INFO.organization}</div>
+          <div className="instructor-role">{instructor.title}</div>
+          <div className="instructor-org">{instructor.organization}</div>
 
           <div className="instructor-skill-grid">
-            {INSTRUCTOR_INFO.experience.map((exp) => (
+            {instructor.experience.map((exp) => (
               <div key={exp} className="instructor-skill">
                 <span className="instructor-skill-check">✓</span>
                 <span>{exp}</span>
@@ -34,11 +34,11 @@ const InstructorSection = () => {
           </div>
 
           <p className="instructor-desc" style={{ fontWeight: 600, marginBottom: '1rem' }}>
-            {INSTRUCTOR_INFO.achievement}
+            {instructor.achievement}
           </p>
 
           <p className="instructor-desc">
-            {INSTRUCTOR_INFO.description}
+            {instructor.description}
           </p>
         </div>
       </div>

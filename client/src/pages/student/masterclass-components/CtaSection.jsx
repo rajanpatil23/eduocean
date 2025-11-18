@@ -1,16 +1,19 @@
 import React from "react";
 
-const CtaSection = ({ onReserveClick }) => {
+const CtaSection = ({ onReserveClick, config }) => {
+  const title = config.ctaTitle;
+  const subtitle = config.ctaSubtitle;
+  
   return (
     <section className="cta-section">
       <div className="masterclass-container">
         <div className="cta-card">
           <div className="cta-content">
             <h2 className="cta-title">
-              Ready to Pass Your PMP Exam?
+              {title}
             </h2>
             <p className="cta-subtitle">
-              Join our FREE live masterclass and learn the proven 10-day strategy to clear your PMP certification with confidence.
+              {subtitle}
             </p>
             
             <div className="cta-highlights">

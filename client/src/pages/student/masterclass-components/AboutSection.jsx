@@ -1,7 +1,7 @@
 import React from "react";
-import { ABOUT_CONTENT } from "./constants";
 
-const AboutSection = ({ onReserveClick }) => {
+const AboutSection = ({ onReserveClick, config }) => {
+  const content = config.about;
   const highlights = [
     { icon: "fa-hand-pointer", text: "Hands-On Learning" },
     { icon: "fa-chalkboard-teacher", text: "Expert-Led Training" },
@@ -14,10 +14,10 @@ const AboutSection = ({ onReserveClick }) => {
   return (
     <section className="about-masterclass">
       <div className="about-masterclass-inner">
-        <h2 className="about-title">{ABOUT_CONTENT.title}</h2>
+        <h2 className="about-title">{content.title}</h2>
         
         <p className="about-subtitle">
-          {ABOUT_CONTENT.description}
+          {content.description}
         </p>
 
         {/* Key Highlights Grid */}

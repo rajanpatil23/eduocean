@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGetPublishedCourseQuery } from "@/features/api/courseApi";
 import { useSubmitContactFormAdvisorMutation } from "@/features/api/authApi";
+import { allMasterclasses } from './masterclass-components/masterclass-configs';
 
 const MasterClasses = () => {
   const navigate = useNavigate();
@@ -60,70 +61,6 @@ const MasterClasses = () => {
     }
   };
 
-  // Master classes data - 2 featured, rest past events
-  const masterClasses = [
-    {
-      id: 1,
-      title: "PMP Certification Masterclass",
-      description: "Intensive workshop covering PMP exam strategies and project management best practices",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop",
-      date: "2025-11-22",
-      time: "10:30 AM - 11:30 AM EST",
-      instructor: "EduOcean Expert",
-      isPast: false
-    },
-    {
-      id: 2,
-      title: "AWS Solutions Architect Bootcamp",
-      description: "Master AWS architecture patterns and prepare for SAA-C03 certification",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=300&fit=crop",
-      date: "2024-11-22",
-      time: "9:00 AM - 5:00 PM",
-      instructor: "Priya Sharma, AWS Certified",
-      isPast: true
-    },
-    {
-      id: 3,
-      title: "CISSP Security Fundamentals",
-      description: "Comprehensive cybersecurity training for CISSP certification preparation",
-      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500&h=300&fit=crop",
-      date: "2024-12-10",
-      time: "1:00 PM - 5:00 PM",
-      instructor: "Amit Patel, CISSP",
-      isPast: true
-    },
-    {
-      id: 4,
-      title: "Scrum Master Certification Workshop",
-      description: "Agile methodologies and CSM certification exam preparation",
-      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=500&h=300&fit=crop",
-      date: "2024-11-20",
-      time: "10:00 AM - 3:00 PM",
-      instructor: "Sneha Reddy, CSM",
-      isPast: true
-    },
-    {
-      id: 5,
-      title: "Azure Administrator Intensive",
-      description: "Hands-on training for AZ-104 Microsoft Azure Administrator certification",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=300&fit=crop",
-      date: "2024-10-15",
-      time: "9:00 AM - 4:00 PM",
-      instructor: "Vikram Singh, Azure Expert",
-      isPast: true
-    },
-    {
-      id: 6,
-      title: "ITIL 4 Foundation Masterclass",
-      description: "IT service management best practices and ITIL 4 certification prep",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
-      date: "2024-09-28",
-      time: "11:00 AM - 3:00 PM",
-      instructor: "Kavita Desai, ITIL Expert",
-      isPast: true
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-[#141414]">
       {/* Hero Section */}
@@ -172,7 +109,7 @@ const MasterClasses = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Master Class Cards - 3 cards taking 75% */}
           <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {masterClasses.map((masterClass) => (
+            {allMasterclasses.map((masterClass) => (
               <div
                 key={masterClass.id}
                 className={`bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ${
@@ -184,7 +121,7 @@ const MasterClasses = () => {
                 <div className="relative">
                   <img
                     src={masterClass.image}
-                    alt={masterClass.title}
+                    alt={masterClass.shortTitle}
                     className="w-full h-48 object-cover"
                   />
                   {masterClass.isPast && (
@@ -196,7 +133,7 @@ const MasterClasses = () => {
                 
                 <div className="p-5">
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">
-                    {masterClass.title}
+                    {masterClass.shortTitle}
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
                     {masterClass.description}
@@ -205,7 +142,7 @@ const MasterClasses = () => {
                   <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                     <div className="flex items-center gap-2">
                       <span className="font-semibold">📅 Date:</span>
-                      <span>{new Date(masterClass.date).toLocaleDateString('en-US', { 
+                      <span>{new Date(masterClass.eventDate).toLocaleDateString('en-US', { 
                         year: 'numeric', 
                         month: 'long', 
                         day: 'numeric' 
@@ -213,18 +150,18 @@ const MasterClasses = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="font-semibold">⏰ Time:</span>
-                      <span>{masterClass.time}</span>
+                      <span>{masterClass.cardTime}</span>
                     </div>
                     <div>
-                      <span className="text-gray-600 dark:text-gray-400">By {masterClass.instructor}</span>
+                      <span className="text-gray-600 dark:text-gray-400">By {masterClass.instructor.name}</span>
                     </div>
                   </div>
 
                   <button
                     disabled={masterClass.isPast}
                     onClick={() => {
-                      if (masterClass.id === 1) {
-                        navigate('/master-classes/pmp-certification');
+                      if (!masterClass.isPast) {
+                        navigate(`/master-classes/${masterClass.slug}`);
                       }
                     }}
                     className={`mt-4 w-full py-2 rounded-lg font-medium transition-colors ${

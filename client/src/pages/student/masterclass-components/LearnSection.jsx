@@ -1,14 +1,14 @@
 import React from "react";
-import { LEARNING_ITEMS } from "./constants";
 
-const LearnSection = ({ onReserveClick }) => {
+const LearnSection = ({ onReserveClick, config }) => {
+  const items = config.learningItems;
   return (
     <section className="learn-section">
       <h2 className="learn-title">What You'll Learn</h2>
 
       <div className="learn-card">
         <div className="learn-grid">
-          {LEARNING_ITEMS.map((item) => (
+          {items.map((item) => (
             <div
               key={item.id}
               className={`learn-item ${item.color}`}

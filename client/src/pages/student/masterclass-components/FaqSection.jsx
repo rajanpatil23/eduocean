@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { FAQ_ITEMS } from "./constants";
 
-const FaqSection = () => {
+const FaqSection = ({ config }) => {
+  const faqItems = config.faqs;
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
@@ -13,7 +13,7 @@ const FaqSection = () => {
       <h2 className="faq-title">Frequently Asked Questions</h2>
 
       <div className="faq-list-wrapper">
-        {FAQ_ITEMS.map((item, index) => {
+        {faqItems.map((item, index) => {
           const isOpen = openIndex === index;
           return (
             <div
