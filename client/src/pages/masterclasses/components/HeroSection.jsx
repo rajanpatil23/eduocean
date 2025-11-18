@@ -29,8 +29,8 @@ const HeroSection = ({ timeLeft, onReserveClick, onContactClick, config }) => {
           {/* Image - Shows here on mobile only */}
           <div className="masterclass-hero-image-wrap masterclass-hero-image-mobile">
             <img
-              src="/Instructor.svg"
-              alt="PMP Instructor"
+              src={config.instructor?.image || "/Instructor.svg"}
+              alt={config.instructor?.name || "Instructor"}
               className="masterclass-hero-image"
             />
           </div>
@@ -92,8 +92,8 @@ const HeroSection = ({ timeLeft, onReserveClick, onContactClick, config }) => {
         {/* Desktop: Right Column / Mobile: Hidden */}
         <div className="masterclass-hero-image-wrap masterclass-hero-image-desktop">
           <img
-            src="/Instructor.svg"
-            alt="PMP Instructor"
+            src={config.instructor?.image || "/Instructor.svg"}
+            alt={config.instructor?.name || "Instructor"}
             className="masterclass-hero-image"
           />
         </div>

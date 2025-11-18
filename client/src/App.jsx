@@ -41,8 +41,8 @@ import AboutUs from "./pages/student/Aboutus";
 import PopForm from "./pages/Homepage/PopupForm";
 import { useEffect, useState } from "react";
 import CourseDetail2 from "./pages/student/CourseDetail2";
-import MasterClasses from "./pages/student/MasterClasses";
-import MasterClassDetail from "./pages/student/MasterClassDetail";
+import MasterClasses from "./pages/masterclasses/pages/MasterClasses";
+import MasterClassDetail from "./pages/masterclasses/pages/MasterClassDetail";
 
 
 const appRouter = createBrowserRouter([

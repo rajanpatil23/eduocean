@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getMasterclassBySlug } from "./masterclass-components/masterclass-configs";
-import { getTimeRemaining } from "./masterclass-components/masterclass-configs/utils";
-import HeroSection from "./masterclass-components/HeroSection";
-import AboutSection from "./masterclass-components/AboutSection";
-import LearnSection from "./masterclass-components/LearnSection";
-import InstructorSection from "./masterclass-components/InstructorSection";
-import WhoSection from "./masterclass-components/WhoSection";
-import FaqSection from "./masterclass-components/FaqSection";
-import CtaSection from "./masterclass-components/CtaSection";
-import DynamicReservationModal from "./masterclass-components/DynamicReservationModal";
-import ContactModal from "./masterclass-components/ContactModal";
-import "./PMPMasterClass.css";
+import { getMasterclassBySlug } from "../configs";
+import { getTimeRemaining } from "../configs/utils";
+import HeroSection from "../components/HeroSection";
+import AboutSection from "../components/AboutSection";
+import LearnSection from "../components/LearnSection";
+import InstructorSection from "../components/InstructorSection";
+import WhoSection from "../components/WhoSection";
+import FaqSection from "../components/FaqSection";
+import CtaSection from "../components/CtaSection";
+import DynamicReservationModal from "../components/DynamicReservationModal";
+import ContactModal from "../components/ContactModal";
+import "../styles/PMPMasterClass.css";
 
 const MasterClassDetail = () => {
   const { slug } = useParams();

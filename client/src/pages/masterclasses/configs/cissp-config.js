@@ -11,9 +11,10 @@ export const cisspConfig = {
   displayTime: '⏰ 9:00 PM IST | 10:30 AM EST | 6:30 PM UAE',
   cardTime: '9:00 PM IST | 10:30 AM EST | 6:30 PM UAE',
   instructor: {
-    name: 'Shiva Kumar',
+    name: 'EduOcean Expert',
     title: 'CISSP Mentor | Cybersecurity Architect | 12+ Years in InfoSec',
     organization: 'The Edu Ocean',
+    image: '/Instructor2.svg', // You can change this to a different image URL
     experience: [
       'Access Control, Security Governance',
       'Risk Management Strategies',

@@ -10,8 +10,8 @@ const InstructorSection = ({ config }) => {
         <div className="instructor-avatar-wrap">
           <div className="instructor-avatar-ring">
             <img
-              src="/Instructor.svg"
-              alt="PMP Instructor"
+              src={instructor.image || "/Instructor.svg"}
+              alt={instructor.name}
               className="instructor-avatar"
             />
           </div>

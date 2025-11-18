@@ -11,9 +11,10 @@ export const pmpConfig = {
   displayTime: '⏰ 10:30 AM EST | 6:30 PM UAE',
   cardTime: '10:30 AM - 11:30 AM EST',
   instructor: {
-    name: 'By The Edu Ocean Expert',
+    name: 'EduOcean Expert',
     title: 'PMI Approved Instructor for PMP & CAPM',
     organization: 'The Edu Ocean',
+    image: '/Instructor.svg', // You can change this to a different image URL
     experience: [
       'Ex Bell Labs',
       'Ex Cap Gemini',

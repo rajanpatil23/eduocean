@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGetPublishedCourseQuery } from "@/features/api/courseApi";
 import { useSubmitContactFormAdvisorMutation } from "@/features/api/authApi";
-import { allMasterclasses } from './masterclass-components/masterclass-configs';
+import { allMasterclasses } from '../configs';
 
 const MasterClasses = () => {
   const navigate = useNavigate();
