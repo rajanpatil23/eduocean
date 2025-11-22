@@ -43,6 +43,7 @@ import { useEffect, useState } from "react";
 import CourseDetail2 from "./pages/student/CourseDetail2";
 import MasterClasses from "./pages/masterclasses/pages/MasterClasses";
 import MasterClassDetail from "./pages/masterclasses/pages/MasterClassDetail";
+import MasterClassCheckout from "./pages/masterclasses/MasterClassCheckout";
 
 
 const appRouter = createBrowserRouter([
@@ -116,6 +117,15 @@ const appRouter = createBrowserRouter([
         element: (
           <>
             <MasterClassDetail />
+            <Footer />
+          </>
+        ),
+      },
+      {
+        path: "master-classes/checkout",
+        element: (
+          <>
+            <MasterClassCheckout />
             <Footer />
           </>
         ),
