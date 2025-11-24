@@ -4,11 +4,13 @@ import axios from "axios";
 
 const RAZORPAY_KEY_ID = import.meta.env.VITE_RAZORPAY_KEY_ID || "rzp_test_your_key";
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080/api/v1";
+const CCAVENUE_ENABLED = import.meta.env.VITE_CCAVENUE_ENABLED === "true";
 
 export default function MasterClassCheckout() {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState("razorpay"); // 'razorpay' or 'ccavenue'
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -45,7 +47,7 @@ export default function MasterClassCheckout() {
     });
   };
 
-  const handlePayment = async () => {
+  const handleRazorpayPayment = async () => {
     if (!form.name || !form.email || !form.phone || !form.amount) {
       alert("Please fill all required fields");
       return;
@@ -145,6 +147,69 @@ export default function MasterClassCheckout() {
       console.error("Payment error:", error);
       alert("Failed to initiate payment. Please try again.");
       setLoading(false);
+    }
+  };
+
+  const handleCCAvenuePayment = async () => {
+    if (!form.name || !form.email || !form.phone || !form.amount) {
+      alert("Please fill all required fields");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      // Create CCAvenue order on backend
+      const { data } = await axios.post(
+        `${API_URL}/masterclass/ccavenue-create-order`,
+        {
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          course: form.course,
+          amount: form.amount,
+          notes: form.notes,
+          paymentType: form.ptype,
+        }
+      );
+
+      if (!data.success) {
+        alert("Failed to create order. Please try again.");
+        setLoading(false);
+        return;
+      }
+
+      // Create a hidden form and submit to CCAvenue
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = data.ccavenueUrl;
+
+      const encRequestInput = document.createElement("input");
+      encRequestInput.type = "hidden";
+      encRequestInput.name = "encRequest";
+      encRequestInput.value = data.encRequest;
+      form.appendChild(encRequestInput);
+
+      const accessCodeInput = document.createElement("input");
+      accessCodeInput.type = "hidden";
+      accessCodeInput.name = "access_code";
+      accessCodeInput.value = data.accessCode;
+      form.appendChild(accessCodeInput);
+
+      document.body.appendChild(form);
+      form.submit();
+    } catch (error) {
+      console.error("CCAvenue Payment error:", error);
+      alert("Failed to initiate payment. Please try again.");
+      setLoading(false);
+    }
+  };
+
+  const handlePayment = () => {
+    if (paymentMethod === "razorpay") {
+      handleRazorpayPayment();
+    } else if (paymentMethod === "ccavenue") {
+      handleCCAvenuePayment();
     }
   };
 
@@ -359,10 +424,60 @@ export default function MasterClassCheckout() {
 
             {/* Payment */}
             <div className="bg-white p-6 rounded-xl shadow">
-              <h2 className="text-lg font-semibold mb-3">Payment</h2>
+              <h2 className="text-lg font-semibold mb-3">Payment Method</h2>
+              
+              {/* Payment Method Selection */}
+              {CCAVENUE_ENABLED && (
+                <div className="mb-4 space-y-3">
+                  <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all hover:bg-gray-50"
+                    style={{
+                      borderColor: paymentMethod === "razorpay" ? "#2563eb" : "#e5e7eb",
+                      backgroundColor: paymentMethod === "razorpay" ? "#eff6ff" : "white"
+                    }}
+                  >
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      value="razorpay"
+                      checked={paymentMethod === "razorpay"}
+                      onChange={(e) => setPaymentMethod(e.target.value)}
+                      className="mr-3"
+                    />
+                    <div className="flex-1">
+                      <div className="font-semibold text-gray-900">Razorpay</div>
+                      <div className="text-xs text-gray-500">Credit/Debit Card, UPI, Net Banking</div>
+                    </div>
+                    <img src="https://razorpay.com/assets/razorpay-glyph.svg" alt="Razorpay" className="h-6" />
+                  </label>
+
+                  <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all hover:bg-gray-50"
+                    style={{
+                      borderColor: paymentMethod === "ccavenue" ? "#2563eb" : "#e5e7eb",
+                      backgroundColor: paymentMethod === "ccavenue" ? "#eff6ff" : "white"
+                    }}
+                  >
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      value="ccavenue"
+                      checked={paymentMethod === "ccavenue"}
+                      onChange={(e) => setPaymentMethod(e.target.value)}
+                      className="mr-3"
+                    />
+                    <div className="flex-1">
+                      <div className="font-semibold text-gray-900">CCAvenue</div>
+                      <div className="text-xs text-gray-500">All major payment methods supported</div>
+                    </div>
+                    <div className="text-orange-600 font-bold text-sm">CCAvenue</div>
+                  </label>
+                </div>
+              )}
+
               <div className="mb-4 p-4 bg-blue-50 rounded-lg">
                 <p className="text-sm text-gray-700">
-                  You will be redirected to Razorpay's secure payment gateway to complete your payment.
+                  {paymentMethod === "razorpay" 
+                    ? "You will be redirected to Razorpay's secure payment gateway to complete your payment."
+                    : "You will be redirected to CCAvenue's secure payment gateway to complete your payment."}
                 </p>
               </div>
 
@@ -382,11 +497,11 @@ export default function MasterClassCheckout() {
                     : "bg-blue-600 text-white hover:bg-blue-700"
                 }`}
               >
-                {loading ? "Processing..." : "Pay Now with Razorpay"}
+                {loading ? "Processing..." : `Pay Now with ${paymentMethod === "razorpay" ? "Razorpay" : "CCAvenue"}`}
               </button>
 
               <div className="mt-4 text-xs text-center text-gray-500">
-                <p>🔒 Secure payment powered by Razorpay</p>
+                <p>🔒 Secure payment powered by {paymentMethod === "razorpay" ? "Razorpay" : "CCAvenue"}</p>
               </div>
             </div>
           </div>
