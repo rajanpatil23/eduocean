@@ -71,34 +71,10 @@ const HeroSection = ({ timeLeft, onReserveClick, onContactClick, config }) => {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <button
-                className="masterclass-btn-primary flex-1"
+                className="masterclass-btn-primary"
                 onClick={onReserveClick}
               >
                 Reserve Your Free Seat Now
-              </button>
-              <button
-                className="masterclass-btn-secondary flex-1"
-                onClick={() => navigate("/master-classes/checkout")}
-                style={{
-                  backgroundColor: "#10b981",
-                  color: "white",
-                  padding: "1rem 2rem",
-                  borderRadius: "0.5rem",
-                  fontWeight: "600",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = "#059669";
-                  e.target.style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = "#10b981";
-                  e.target.style.transform = "translateY(0)";
-                }}
-              >
-                Register Now
               </button>
             </div>
 

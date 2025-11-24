@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGetPublishedCourseQuery } from "@/features/api/courseApi";
 import { useSubmitContactFormAdvisorMutation } from "@/features/api/authApi";
@@ -18,6 +18,7 @@ const MasterClasses = () => {
   });
 
   const [status, setStatus] = useState({ type: "", message: "" });
+  const formRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -81,6 +82,12 @@ const MasterClasses = () => {
           <p className="text-lg md:text-xl text-blue-100 mb-6 max-w-3xl mx-auto">
             Join our expert-led intensive sessions to accelerate your career and master industry-leading certifications
           </p>
+          <button
+            onClick={() => navigate("/master-classes/checkout")}
+            className="mb-6 px-8 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+          >
+            Register Now
+          </button>
           <div className="flex flex-wrap justify-center gap-4 text-white">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -178,7 +185,7 @@ const MasterClasses = () => {
           </div>
 
           {/* Right Side - Registration Form */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1" ref={formRef}>
             <div className="sticky top-24 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700">
               <div className="mb-6 text-center">
                 <img
