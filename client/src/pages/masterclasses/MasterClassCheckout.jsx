@@ -180,24 +180,24 @@ export default function MasterClassCheckout() {
       }
 
       // Create a hidden form and submit to CCAvenue
-      const form = document.createElement("form");
-      form.method = "POST";
-      form.action = data.ccavenueUrl;
+      const paymentForm = document.createElement("form");
+      paymentForm.method = "POST";
+      paymentForm.action = data.ccavenueUrl;
 
       const encRequestInput = document.createElement("input");
       encRequestInput.type = "hidden";
       encRequestInput.name = "encRequest";
       encRequestInput.value = data.encRequest;
-      form.appendChild(encRequestInput);
+      paymentForm.appendChild(encRequestInput);
 
       const accessCodeInput = document.createElement("input");
       accessCodeInput.type = "hidden";
       accessCodeInput.name = "access_code";
       accessCodeInput.value = data.accessCode;
-      form.appendChild(accessCodeInput);
+      paymentForm.appendChild(accessCodeInput);
 
-      document.body.appendChild(form);
-      form.submit();
+      document.body.appendChild(paymentForm);
+      paymentForm.submit();
     } catch (error) {
       console.error("CCAvenue Payment error:", error);
       alert("Failed to initiate payment. Please try again.");
