@@ -218,7 +218,7 @@ export const createCCAvenueOrder = async (req, res) => {
     // Generate unique order ID
     const orderId = generateOrderId("MC");
 
-    // Prepare CCAvenue request data
+    // Prepare CCAvenue request data in exact order as per documentation
     const ccavenueData = {
       merchant_id: process.env.CCAVENUE_MERCHANT_ID,
       order_id: orderId,
@@ -228,29 +228,32 @@ export const createCCAvenueOrder = async (req, res) => {
       cancel_url: process.env.CCAVENUE_CANCEL_URL,
       language: "EN",
       billing_name: name,
-      billing_address: "NA",
-      billing_city: "NA",
-      billing_state: "NA",
-      billing_zip: "000000",
-      billing_country: "United States",
+      billing_address: "Test Address",
+      billing_city: "Test City",
+      billing_state: "Test State",
+      billing_zip: "123456",
+      billing_country: "India",
       billing_tel: phone,
       billing_email: email,
       delivery_name: name,
-      delivery_address: "NA",
-      delivery_city: "NA",
-      delivery_state: "NA",
-      delivery_zip: "000000",
-      delivery_country: "United States",
+      delivery_address: "Test Address",
+      delivery_city: "Test City",
+      delivery_state: "Test State",
+      delivery_zip: "123456",
+      delivery_country: "India",
       delivery_tel: phone,
       merchant_param1: course,
       merchant_param2: paymentType,
-      merchant_param3: notes || "NA",
+      merchant_param3: notes || "Test",
       merchant_param4: email,
       merchant_param5: phone,
     };
 
-    // Format and encrypt the request
-    const requestString = formatCCAvenueRequest(ccavenueData);
+    // Format and encrypt the request (add & at the end as per CCAvenue docs)
+    let requestString = formatCCAvenueRequest(ccavenueData);
+    if (!requestString.endsWith("&")) {
+      requestString += "&";
+    }
     const encryptedData = encrypt(requestString, process.env.CCAVENUE_WORKING_KEY);
 
     return res.status(200).json({
