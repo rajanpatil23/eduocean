@@ -24,7 +24,7 @@ export const pmpConfig = {
     achievement: 'Trained 25,000+ professionals across the globe',
     description: 'Our expert brings decades of real-world project leadership and is known for simplifying complex PMP concepts into easy, exam-focused instruction.'
   },
-  isPast: false,
+  isPast: true,
   
   // Content Sections
   about: {

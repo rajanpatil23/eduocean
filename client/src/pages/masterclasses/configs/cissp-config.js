@@ -24,7 +24,7 @@ export const cisspConfig = {
     achievement: 'Mentored hundreds of CISSP and CCSP aspirants',
     description: 'Shiva has mentored hundreds of CISSP and CCSP aspirants, helping professionals from IT, Cybersecurity, and Cloud backgrounds confidently clear their global certifications with structured, exam-focused coaching.'
   },
-  isPast: false,
+  isPast: true,
   
   // Content Sections
   about: {

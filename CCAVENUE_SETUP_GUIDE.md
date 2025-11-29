@@ -49,7 +49,6 @@ Create or update `server/.env`:
 CCAVENUE_MERCHANT_ID=your_merchant_id_here
 
 # Access Code provided by CCAvenue
-CCAVENUE_ACCESS_CODE=your_access_code_here
 
 # Working Key (Encryption Key) provided by CCAvenue
 CCAVENUE_WORKING_KEY=your_working_key_here
